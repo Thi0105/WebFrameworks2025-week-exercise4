@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ProductsView.module.css";
-import { getAllProducts } from "../products";
-import Product from "./Product";
+import { getAllProducts } from "../products.js";
+import Product from "./Product.js";
 
 const ProductsView = () => {
   const products = getAllProducts();
@@ -10,7 +10,7 @@ const ProductsView = () => {
     <div>
       <h1>Shop Products</h1>
       <div className={styles.products}>
-        {products.map((product) => (
+        {products.map((product: { id: React.Key | null | undefined; name: string; price: number; }) => (
           <Product
             key={product.id}
             name={product.name}
